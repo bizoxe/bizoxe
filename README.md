@@ -1,11 +1,34 @@
-### Hi, I'm Alexander 👋
+ <h1 align="center">
+    <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&duration=4000&pause=200&color=0CAFFF&center=true&vCenter=true&width=500&height=100&lines=Hi+There!+%F0%9F%91%8B;I'm+Alexander+Matveev!" alt="Typing SVG" /></a>
+</h1>
 
-I'm Alexander Matveev a Python Developer with experience building web applications and an interest in backend technologies.
+<h4 align="center">A Python Developer with experience building web applications and an interest in backend technologies.</h4>
 
-:mailbox: Reach me out!
+<p  align="center">
+<a href="https://linkedin.com/in/alexander-matveev-626968365"><img src="https://img.shields.io/badge/LinkedIN-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="https://www.linkedin.com/in/https://linkedin.com/in/alexander-matveev-626968365"></a>
+</p>
 
-[![Email Badge](https://img.shields.io/badge/Gmail-Contact_Me-green?style=flat-square&logo=gmail&logoColor=FFFFFF&labelColor=3A3B3C&color=57A0D2)](mailto:alex.matveev.dev@gmail.com)
-![Static Badge](https://img.shields.io/badge/telegram-blue?style=flat-square&logo=telegram&logoColor=FFFFFF&labelColor=3A3B3C&color=57A0D2&link=https%3A%2F%2Ft.me%2Fbizoxe187)
+- 💊 All of my projects are available at [https://github.com/bizoxe](https://github.com/bizoxe)
+- 📫 How to reach me **alex.matveev.dev@gmail.com**
+
+
+---
+
+#### 🛠 &nbsp; Languages and Tools I worked with:
+
+<p>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg"  title="Python" alt="Python" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original-wordmark.svg" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original-wordmark.svg" width="40" height="40"/>&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/>&nbsp;               
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" width="40" height="40"/>&nbsp;  
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" width="40" height="40"/>&nbsp;
+<img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" width="40" height="40"/>&nbsp;
+</p>
+
+---
 
 
 ### My stats ⭐
