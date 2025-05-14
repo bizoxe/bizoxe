@@ -25,6 +25,8 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/>&nbsp;               
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" width="40" height="40"/>&nbsp;  
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" width="40" height="40"/>&nbsp;
+<img src="https://github.com/bizoxe/bizoxe/blob/assets/assets/DBeaver.png?raw=true" title="DBeaver" alt="DBeaver" width="40" height="40"/>&nbsp;
+<img src="https://github.com/bizoxe/bizoxe/blob/assets/assets/sqlalchemy.png?raw=true" title="SQLAlchemy" alt="SQLAlchemy" width="40" height="40"/>&nbsp; 
 <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" width="40" height="40"/>&nbsp;
 </p>
 
