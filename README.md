@@ -1,31 +1,31 @@
 # Alexander Matveev
 
-**Python Backend Engineer** | Focusing on Type-safety, Clean Architecture, and Automation.
+**Python Backend Engineer | Async Performance & Architecture**
 
 ---
 
-### Engineering Stack
-
 **Backend Development**
-- **Core:** Python (Asyncio), Pydantic v2, Type Hinting (Mypy).
-- **Frameworks:** FastAPI, Flask.
+- **Core:** Python (Asyncio), Pydantic v2, Type-safe development (Mypy strict).
+- **Frameworks:** FastAPI.
 - **Data Access:** SQLAlchemy v2.0 & Advanced Alchemy (Repository & Service patterns), Alembic.
-- **Storage & Caching:** PostgreSQL (Query Optimization, Migrations), Redis, PgBouncer.
+- **Storage & Caching:** PostgreSQL (Query Optimization), Valkey (Redis fork), PgBouncer.
 
-**Infrastructure & CI/CD**
-- **OS & Scripting:** Linux (Debian 12), Bash for automation.
-- **Containers:** Docker & Docker Compose.
-- **Automation:** GitHub Actions, Dependabot.
-- **Quality Control:** Pytest, Ruff, Mypy, Conventional Commits.
-
-**Web Basics**
-- **Frontend:** HTML, CSS, JavaScript.
+**Infrastructure & Quality**
+- **Environment:** Linux (Debian 12), Angie (Nginx fork).
+- **DevOps & Automation:** Docker & Docker Compose, GitHub Actions, Bash scripts, Dependabot.
+- **Quality Control:** Pytest, Static Analysis (Ruff, Mypy), Conventional Commits, ADR.
 
 ---
 
 ### Projects in Focus
 
-- **[IronTrack](https://github.com/bizoxe/iron-track)** — Production-ready FastAPI service with custom RBAC, PgBouncer, and Service Layer architecture.
+**[IronTrack](https://github.com/bizoxe/iron-track)** — an open-source research platform for testing production-oriented patterns under infrastructure constraints.
+
+- **Performance:** 6.5x reduction in P99 latency via hybrid DTO (Pydantic + msgspec). 
+- **Concurrency:** Resolved Event-Loop blocking by offloading Argon2id hashing to thread pools.
+- **Security:** Migrated to Ed25519, increasing auth throughput by 48%.
+- **DB Tuning:** Optimized PostgreSQL for HDD (`random_page_cost`) and PgBouncer pooling.
+- **Deep Dive:** Technical analysis and benchmarks available in [ADR-001](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md).
 
 ---
 
@@ -41,5 +41,5 @@
 
 <p align="left">
 <a href="https://t.me/bizoxe187" target="blank"><img src="https://img.shields.io/static/v1?label=Telegram&message=Chat&color=2CA5E0&style=flat-square&logo=telegram" alt="Telegram" /></a>
-<a href="https://linkedin.com/in/alexander-matveev-626968365" target="blank"><img src="https://img.shields.io/static/v1?label=LinkedIn&message=Connect&color=0077B5&style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
+<a href="https://linkedin.com/in/alexander-matveev-dev" target="blank"><img src="https://img.shields.io/static/v1?label=LinkedIn&message=Connect&color=0077B5&style=flat-square&logo=linkedin" alt="LinkedIn" /></a>
 </p>
