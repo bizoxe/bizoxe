@@ -8,7 +8,7 @@
 - **Core:** Python (Asyncio), Pydantic v2, Type-safe development (Mypy strict).
 - **Frameworks:** FastAPI.
 - **Data Access:** SQLAlchemy v2.0 & Advanced Alchemy (Repository & Service patterns), Alembic.
-- **Storage & Caching:** PostgreSQL (Query Optimization), Valkey (Redis fork), PgBouncer.
+- **Data Layer:** PostgreSQL (Query Optimization), Valkey (Redis fork), PgBouncer.
 
 **Infrastructure & Quality**
 - **Environment:** Linux (Debian 12), Angie (Nginx fork).
