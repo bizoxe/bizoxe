@@ -19,13 +19,12 @@
 
 ### Projects in Focus
 
-**[IronTrack](https://github.com/bizoxe/iron-track)** — an open-source research platform for testing production-oriented patterns under infrastructure constraints.
-
-- **Performance:** 6.5x reduction in P99 latency via hybrid DTO (Pydantic + msgspec). 
-- **Concurrency:** Resolved Event-Loop blocking by offloading Argon2id hashing to thread pools.
-- **Security:** Migrated to Ed25519, increasing auth throughput by 48%.
-- **DB Tuning:** Optimized PostgreSQL for HDD (`random_page_cost`) and PgBouncer pooling.
-- **Deep Dive:** Technical analysis and benchmarks available in [ADR-001](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md).
+* **[IronTrack](https://github.com/bizoxe/iron-track)** — research-oriented backend platform for experimenting with production patterns under constrained infrastructure.
+- Reduced P99 latency by 6.5x **compared to standard Pydantic models** by using `msgspec` structs for serialization.
+- Resolved event-loop blocking by moving CPU-bound Argon2id hashing to managed thread pools.
+- Migrated to **Ed25519 (RFC 8037)**, improving authorization throughput by 48% on **legacy CPU** compared to RSA-256.
+- Tuned PostgreSQL for high-latency storage (HDD) and configured PgBouncer transaction pooling.
+- Architectural decisions are recorded in [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md); performance data is available in [BENCHMARKS](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
 
 ---
 
