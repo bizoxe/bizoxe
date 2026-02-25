@@ -5,26 +5,26 @@
 ---
 
 **Backend Development**
-- **Core:** Python (Asyncio), Pydantic v2, Type-safe development (Mypy strict).
+- **Core:** Python (Asyncio), Pydantic v2, Static Typing (Mypy).
 - **Frameworks:** FastAPI.
-- **Data Access:** SQLAlchemy v2.0 & Advanced Alchemy (Repository & Service patterns), Alembic.
-- **Data Layer:** PostgreSQL (Query Optimization), Valkey (Redis fork), PgBouncer.
+- **Data Access:** SQLAlchemy v2.0 & Advanced Alchemy (Repository & Service patterns).
+- **Data Layer:** PostgreSQL (Query Optimization), PgBouncer, Alembic, Valkey (Redis fork).
 
 **Infrastructure & Quality**
 - **Environment:** Linux (Debian 12), Angie (Nginx fork).
-- **DevOps & Automation:** Docker & Docker Compose, GitHub Actions, Bash scripts, Dependabot.
-- **Quality Control:** Pytest, Static Analysis (Ruff, Mypy), Conventional Commits, ADR.
+- **DevOps & CI/CD:** Docker & Docker Compose, GitHub Actions, Bash, Dependabot.
+- **Standards & Tooling:** Pytest, Ruff, Conventional Commits, ADR.
 
 ---
 
 ### Projects in Focus
 
-* **[IronTrack](https://github.com/bizoxe/iron-track)** — research-oriented backend platform for experimenting with production patterns under constrained infrastructure.
-- Reduced P99 latency by 6.5x **compared to standard Pydantic models** by using `msgspec` structs for serialization.
-- Resolved event-loop blocking by moving CPU-bound Argon2id hashing to managed thread pools.
-- Migrated to **Ed25519 (RFC 8037)**, improving authorization throughput by 48% on **legacy CPU** compared to RSA-256.
-- Tuned PostgreSQL for high-latency storage (HDD) and configured PgBouncer transaction pooling.
-- Architectural decisions are recorded in [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md); performance data is available in [BENCHMARKS](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
+* **[IronTrack](https://github.com/bizoxe/iron-track)** — Async research environment for experimenting with architectural patterns under constrained infrastructure.
+    * **Serialization analysis:** Implemented `msgspec.Struct` models, reducing serialization latency by 6.5x compared to Pydantic v2.
+    * **Concurrency tuning:** Offloaded CPU-bound Argon2id hashing to managed thread pools to prevent event-loop blocking.
+    * **Auth optimization:** Migrated to Ed25519 (RFC 8037) signatures, increasing throughput by 48% on limited-resource hardware compared to RSA.
+    * **Infrastructure-aware DB:** Optimized PostgreSQL for high-latency storage (HDD) and integrated PgBouncer in transaction pooling mode.
+    * **Decision Log:** Architectural decisions are recorded in [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md); metrics are available in [BENCHMARKS](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
 
 ---
 
