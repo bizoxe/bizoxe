@@ -19,12 +19,12 @@
 
 ### Projects in Focus
 
-* **[IronTrack](https://github.com/bizoxe/iron-track)** — Async research environment for experimenting with architectural patterns under constrained infrastructure.
-    * **Serialization analysis:** Implemented `msgspec.Struct` models, reducing serialization latency by 6.5x compared to Pydantic v2.
-    * **Concurrency tuning:** Offloaded CPU-bound Argon2id hashing to managed thread pools to prevent event-loop blocking.
-    * **Auth optimization:** Migrated to Ed25519 (RFC 8037) signatures, increasing throughput by 48% on limited-resource hardware compared to RSA.
-    * **Infrastructure-aware DB:** Optimized PostgreSQL for high-latency storage (HDD) and integrated PgBouncer in transaction pooling mode.
-    * **Decision Log:** Architectural decisions are recorded in [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md); metrics are available in [BENCHMARKS](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
+* **[IronTrack](https://github.com/bizoxe/iron-track)** — Experimental async sandbox for evaluating architectural patterns under hardware constraints.
+    * **Serialization:** Analyzed `msgspec` vs Pydantic v2 to minimize overhead in latency-sensitive endpoints.
+    * **Concurrency:** Offloaded Argon2id hashing to managed thread pools with CPU-core limits to maintain event-loop responsiveness.
+    * **Auth:** Evaluated and adopted Ed25519 (EdDSA) to reduce cryptographic compute cost on Piledriver-based hardware.
+    * **Storage Optimization:** Tuned PostgreSQL planner and PgBouncer configurations for high-latency HDD environments.
+    * **Decision Log:** Architectural rationale and hardware-specific optimizations are documented via [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md) and [benchmarks](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
 
 ---
 
