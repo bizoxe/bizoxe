@@ -1,6 +1,6 @@
 # Alexander Matveev
 
-**Python Backend Engineer | Async Performance & Architecture**
+**Python Backend Engineer | Focus on Async Systems & Scalable Architecture**
 
 ---
 
