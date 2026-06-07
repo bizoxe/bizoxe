@@ -20,11 +20,22 @@
 ### Projects in Focus
 
 * **[IronTrack](https://github.com/bizoxe/iron-track)** — Experimental async sandbox for evaluating architectural patterns under hardware constraints.
-    * **Serialization:** Analyzed `msgspec` vs Pydantic v2 to minimize overhead in latency-sensitive endpoints.
-    * **Concurrency:** Offloaded Argon2id hashing to managed thread pools with CPU-core limits to maintain event-loop responsiveness.
-    * **Auth:** Evaluated and adopted Ed25519 (EdDSA) to reduce cryptographic compute cost on Piledriver-based hardware.
-    * **Storage Optimization:** Tuned PostgreSQL planner and PgBouncer configurations for high-latency HDD environments.
-    * **Decision Log:** Architectural rationale and hardware-specific optimizations are documented via [ADR](https://github.com/bizoxe/iron-track/blob/main/dev/adr/001-performance.md) and [benchmarks](https://github.com/bizoxe/iron-track/blob/main/benchmarks/BENCHMARKS.md).
+* **Optimization Context:** Conducted on constrained **HDD-based storage** and **Piledriver-based architecture** to simulate high-latency, resource-limited environments.
+* **Key Improvements:**
+* Migrated JWT signing (RSA-2048 to Ed25519) and offloaded Argon2id hashing to `ThreadPoolExecutor` to prevent Event Loop starvation.
+* Implemented local JTI caching for Access Tokens and native `msgspec.json` serialization for latency-critical paths.
+
+
+* **Results:** Achieved **up to 39% latency reduction** across key authentication endpoints, verified through iterative load testing.
+* **Documentation:** Detailed methodology, flame graphs, and performance metrics are available in the [Load Testing Report](https://github.com/bizoxe/iron-track/blob/main/benchmarks/auth-serialization.md).
+
+---
+
+| Endpoint | Mean Latency Change | Primary Factor |
+| --- | --- | --- |
+| `/signup` | -9.26% | Argon2id offloading |
+| `/signin` | **-39.2%** | Ed25519 + ORM tuning |
+| `/me` | -36.5% | JTI Caching 
 
 ---
 
