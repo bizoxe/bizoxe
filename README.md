@@ -22,8 +22,8 @@
 * **[IronTrack](https://github.com/bizoxe/iron-track)** — Experimental async sandbox for evaluating architectural patterns under hardware constraints.
 * **Optimization Context:** Conducted on constrained **HDD-based storage** and **Piledriver-based architecture** to simulate high-latency, resource-limited environments.
 * **Key Improvements:**
-* Migrated JWT signing (RSA-2048 to Ed25519) and offloaded Argon2id hashing to `ThreadPoolExecutor` to prevent Event Loop starvation.
-* Implemented local JTI caching for Access Tokens and native `msgspec.json` serialization for latency-critical paths.
+  * Migrated JWT signing (RSA-2048 to Ed25519) and offloaded Argon2id hashing to `ThreadPoolExecutor` to prevent Event Loop starvation.
+  * Implemented local JTI caching for Access Tokens and native `msgspec.json` serialization for latency-critical paths.
 
 
 * **Results:** Achieved **up to 39% latency reduction** across key authentication endpoints, verified through iterative load testing.
