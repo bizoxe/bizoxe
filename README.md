@@ -34,7 +34,7 @@
 | Endpoint | Mean Latency Change | Primary Factor |
 | --- | --- | --- |
 | `/signup` | -9.26% | Argon2id offloading |
-| `/signin` | **-39.2%** | Ed25519 + ORM tuning |
+| `/signin` | -39.2% | Ed25519 + ORM tuning |
 | `/me` | -36.5% | JTI Caching 
 
 ---
