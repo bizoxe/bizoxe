@@ -1,41 +1,39 @@
 # Alexander Matveev
 
-**Python Backend Engineer | Focus on Async Systems & Scalable Architecture**
+**Python Backend Engineer | Async Systems & Maintainable Architecture**
 
 ---
 
-**Backend Development**
-- **Core:** Python (Asyncio), Pydantic v2, Static Typing (Mypy).
-- **Frameworks:** FastAPI.
-- **Data Access:** SQLAlchemy v2.0 & Advanced Alchemy (Repository & Service patterns).
-- **Data Layer:** PostgreSQL (Query Optimization), PgBouncer, Alembic, Valkey (Redis fork).
-
-**Infrastructure & Quality**
-- **Environment:** Linux (Debian 12), Angie (Nginx fork).
-- **DevOps & CI/CD:** Docker & Docker Compose, GitHub Actions, Bash, Dependabot.
-- **Standards & Tooling:** Pytest, Ruff, Conventional Commits, ADR.
+**Stack**
+- **Language:** Python 3.12 (asyncio), static typing (Mypy).
+- **API:** FastAPI, Pydantic v2, msgspec (hot-path serialization).
+- **Data:** PostgreSQL (query optimization), SQLAlchemy 2.0 & Advanced Alchemy (repository & service patterns), Alembic, PgBouncer, Valkey (Redis fork).
+- **Infrastructure:** Linux (Debian 12), Bash, Docker & Docker Compose, Angie (nginx fork).
+- **Observability:** structlog (non-blocking pipeline), request correlation IDs.
+- **Process:** GitHub Actions, Pytest, Ruff, Conventional Commits, ADR.
 
 ---
 
-### Projects in Focus
+### Project in Focus
 
-* **[IronTrack](https://github.com/bizoxe/iron-track)** — Experimental async sandbox for evaluating architectural patterns under hardware constraints.
-* **Optimization Context:** Conducted on constrained **HDD-based storage** and **Piledriver-based architecture** to simulate high-latency, resource-limited environments.
-* **Key Improvements:**
-  * Migrated JWT signing (RSA-2048 to Ed25519) and offloaded Argon2id hashing to `ThreadPoolExecutor` to prevent Event Loop starvation.
-  * Implemented local JTI caching for Access Tokens and native `msgspec.json` serialization for latency-critical paths.
+**[IronTrack](https://github.com/bizoxe/iron-track)** — an async backend for a realistic domain (workout tracking: RBAC, soft delete, immutable history), deliberately built as an end-to-end case study: schema design → API → observability → hardened deploy. Benchmarked on constrained hardware (AMD FX-8320, HDD) to expose bottlenecks that fast hardware masks.
 
+**Performance engineering on the auth path** — profiled, iterated, verified by load testing:
 
-* **Results:** Achieved **up to 39% latency reduction** across key authentication endpoints, verified through iterative load testing.
-* **Documentation:** Detailed methodology, flame graphs, and performance metrics are available in the [Load Testing Report](https://github.com/bizoxe/iron-track/blob/main/benchmarks/auth-serialization.md).
+* JWT signing migrated **RSA-2048 → Ed25519**; Argon2id hashing offloaded to a `ThreadPoolExecutor` to keep the event loop responsive under hashing load.
+* Local **JTI caching** for access-token verification — safe by construction: entries are written only after full verification, and forging a valid `jti` (uuid4) requires possessing the token. Cache hits skip signature verification entirely, cutting the auth cost of every protected route.
+* `msgspec.json` serialization replacing FastAPI's default encoder on latency-critical paths.
 
----
+| Endpoint | Mean Latency | P90 | Primary Factor |
+|----------|--------------|-----|----------------|
+| `/signin` | **−39.2%** (857 → 521 ms) | −38.5% | Ed25519 + ORM query tuning |
+| `/me` | **−36.5%** (3.70 → 2.35 ms) | −31.0% | JTI cache (multiplicative: auth on every protected route) |
 
-| Endpoint | Mean Latency Change | Primary Factor |
-| --- | --- | --- |
-| `/signup` | -9.26% | Argon2id offloading |
-| `/signin` | -39.2% | Ed25519 + ORM tuning |
-| `/me` | -36.5% | JTI Caching 
+`/signup` is Argon2id-bound by design — the win there is event-loop responsiveness under hashing load, not endpoint latency.
+
+**Benchmarking discipline** — the spec ([SPEC.md](https://github.com/bizoxe/iron-track/blob/main/benchmarks/SPEC.md)) is designed around the bench: `wrk2` at fixed request rate (coordinated-omission aware), per-module CPU affinity isolating app / DB+pooler / cache / load generator on a shared-FPU CPU, DVFS and TTY noise control, CV < 3% run-stability gate. Iterative report with flame graphs: [Load Testing: Auth & Serialization](https://github.com/bizoxe/iron-track/blob/main/benchmarks/auth-serialization.md). Long-form write-up of the same work: [Analyzing and Troubleshooting Bottlenecks in FastAPI](https://iron-track.hashnode.dev/fastapi-performance-bottlenecks-optimization).
+
+**Engineering process:** ADR-recorded decisions, a schema blueprint kept in lockstep with migrations (same-PR policy), Sphinx-documented API, least-privilege CI, conventional commits with a generated changelog.
 
 ---
 
