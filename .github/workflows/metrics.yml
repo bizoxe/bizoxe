@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           user: bizoxe
           template: classic
-          base: header, activity, community, repositories, metadata
+          base: header, activity, metadata
           filename: github-metrics.svg
           config_timezone: Europe/Minsk
           
